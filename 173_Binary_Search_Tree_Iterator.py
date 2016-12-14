@@ -1,5 +1,3 @@
-"""173_Binary_Search_Tree_Iterator.py."""
-
 # Definition for a  binary tree node
 class TreeNode:
     def __init__(self, x):
@@ -22,23 +20,23 @@ class Stack:
 
 
 class BSTIterator:
-
-    s = Stack()
     def __init__(self, root):
-        putall(root)
+        self.s = Stack()
+        self._putall(root)
 
     def hasNext(self):
-        return !s.isEmpty()
+        return not self.s.isEmpty()
 
     def next(self):
-        tempnode = s.pop()
-        putall(tempnode.right)
+        tempnode = self.s.pop()
+        self._putall(tempnode.right)
         return tempnode.val
 
-    def putall(self):
+    def _putall(self,node):
         while node != None:
-            s.push(node)
+            self.s.push(node)
             node = node.left
+
 
 # Your BSTIterator will be called like this:
 # i, v = BSTIterator(root), []
