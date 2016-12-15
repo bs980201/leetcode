@@ -14,7 +14,7 @@ class Solution(object):
             result ^= num
 
         position = 1
-        # why can't use != 1
+
         while result & position == 0:
             position = position << 1
 
